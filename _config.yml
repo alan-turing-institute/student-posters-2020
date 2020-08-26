@@ -18,8 +18,8 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   Showcase of Turing projects by students across different cohorts and research
   areas.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://alan-turing-institute.github.io/student-posters-2020"
+baseurl: "/student-posters-2020" # the subpath of your site, e.g. /blog
+url: "https://alan-turing-institute.github.io"
 twitter_username:
 github_username:
 
