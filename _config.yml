@@ -31,3 +31,8 @@ exclude:
 - Gemfile
 - Gemfile.lock
 - update_boostrap.sh
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
