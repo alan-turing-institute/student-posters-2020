@@ -1,9 +1,10 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: page
+layout: home
+hometitle: Student Showcase 2020
 ---
 
-<h1> The Alan Turing Institute Student Showcase 2020 </h1>
+We're
 
 The Student posters initiative is aimed at ...

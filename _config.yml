@@ -36,3 +36,21 @@ exclude:
 - vendor/cache/
 - vendor/gems/
 - vendor/ruby/
+
+# ---
+
+collections:
+  showcases:
+    output: true
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "showcases"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
