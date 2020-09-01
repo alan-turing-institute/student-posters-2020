@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<article>
+
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+  </header>
+
+  <section>
+    {{ content }}
+  </section>
+
+  {% assign projects = site.data.dummy.projects %}
+  {% assign rows = page.students.size | divided_by: 3.0 | ceil %}
+
+  <div class="container-fluid">
+  {% for i in (1..rows) %}
+  {% assign offset = forloop.index0 | times: 3 %}
+
+    <div class="row">
+    {% for student in page.students limit:3 offset:offset %}
+      {% assign data = projects[student] %}
+      <div class="col-sm">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header">{{ student }}</div>
+            <div class="card-body">
+              <h4 class="card-title">{{ data.title }}</h4>
+              <p class="card-text">{{ data.abstract }}</p>
+            </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+
+  {% endfor %}
+  </div>
+
+</article>
