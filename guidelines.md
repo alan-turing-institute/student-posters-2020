@@ -17,8 +17,6 @@ See below for further guidelines and advice on each of these categories.
   <p class="lead">Submit your poster and video via email to
 		<a href="mailto:student-poster@turing.ac.uk">student-posters@turing.ac.uk</a>
   </p>
-
-	<a class="btn btn-primary btn-lg" href="https://doodle.com/poll/szy2p5v4wsmgcsa5" role="button">Choose Q&A slot</a>
 </div>
 
 <h5 class="mb-1">Notes</h5>
@@ -52,11 +50,11 @@ encourage you to be creative!
 ## Q&A sessions
 
 - Your participation in the Q&A sessions is compulsory.
-- These are organised in hourly time slots.
-- You have 6 distinct time slots to choose from, with up to two Q&A sessions running simultaneously.
+- These are organised in hourly time slots and you are assigned 1 of 6 distinct
+slots, with up to two Q&A sessions running simultaneously.
 - Q&A sessions take place on the **second day** of each showcase. This allows
-people to view your poster beforehand and attend the Q&A with prepared
-questions.
+people to view your poster beforehand and attend the Q&A with questions
+prepared.
 - You may use existing presentation slides, schematics and other auxiliary
 material during the Q&A.
 
