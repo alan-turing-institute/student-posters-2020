@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: ATI-SSC20
+title: Turing-Students20
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  A showcase of ATI student projects across different cohorts and research
+  A showcase of Turing student projects across different cohorts and research
   areas.
 baseurl: "/student-posters-2020" # the subpath of your site, e.g. /blog
 url: "https://alan-turing-institute.github.io"
