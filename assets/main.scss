@@ -71,7 +71,10 @@ $natural: #ced4da !default;
 }
 
 .badge:hover {
-	color: $gray-300;
-	text-decoration: none;
-	cursor: pointer;
+	color: $white;
+	opacity: 1.0;
+}
+
+.badge {
+	opacity: 0.80;
 }
