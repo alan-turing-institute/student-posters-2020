@@ -40,13 +40,13 @@ exclude:
 conference:
   navigation:
     links:
-      - name: Programme
+      - name: Live sessions
         menu:
           - name: 17 Sep
             relative_url: /programme/session-1/
           - name: 24 Sep
             relative_url: /programme/session-2/
-      - name: Showcase
+      - name: Posters
         menu:
           - name: 16-17 Sep
             relative_url: /showcases/session-1/

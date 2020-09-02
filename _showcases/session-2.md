@@ -1,4 +1,4 @@
 ---
-title: Session 2
+title: Poster session 2
 production: false
 ---

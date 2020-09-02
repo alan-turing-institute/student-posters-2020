@@ -1,4 +1,4 @@
 ---
-title: Session 2
+title: Q&A session - 24 Sep
 production: false
 ---

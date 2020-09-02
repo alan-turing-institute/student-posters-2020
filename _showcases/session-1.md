@@ -1,5 +1,5 @@
 ---
-title: Session 1
+title: Poster session 1
 production: false
 students:
   - Student A
