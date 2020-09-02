@@ -1,0 +1,29 @@
+main:
+  health:
+    name: Healthy world
+    url: https://www.turing.ac.uk/research/research-programmes/health-and-medical-sciences
+  economic:
+    name: Economic world
+    url: https://www.turing.ac.uk/research/research-programmes/finance-and-economics
+  engineer:
+    name: Engineered world
+    url: https://www.turing.ac.uk/research/research-programmes/data-centric-engineering
+  social:
+    name: Social and cultural world
+    url: https://www.turing.ac.uk/research/research-programmes/urban-analytics
+  secure:
+    name: Secure world
+    url: https://www.turing.ac.uk/research/research-programmes/defence-and-security
+cross:
+  policy:
+    name: Policy and governance
+    url: https://www.turing.ac.uk/research/research-programmes/public-policy
+  tools:
+    name: Tools, practices and systems
+    url: https://www.turing.ac.uk/research/research-programmes/tools-practices-and-systems
+  ethics:
+    name: Safe and ethical AI
+    url: https://www.turing.ac.uk/research/data-ethics
+  theory:
+    name: Theoretical foundations
+    url: https://www.turing.ac.uk/research/research-programmes/data-science-scale
