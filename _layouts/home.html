@@ -2,25 +2,59 @@
 layout: default
 ---
 
-<div>
+<div class="jumbotron">
+    <h1 class="display-4">{{ site.title }}</h1>
 
-  {%- if page.hometitle -%}
-  <header>
-    <h1>{{ page.hometitle }}</h1>
-  </header>
-  {%- endif -%}
+    <p class="lead"> {{ page.content }} </p>
 
-  <section>
-    {{ content }}
-  </section>
+    <hr class="my-4">
 
-  <p class="h2">Showcases</p>
-  <ul class="list-unstyled">
-  {% for showcase in site.showcases %}
-    <li>
-      <a href="{{ showcase.url | relative_url }}"> Showcase {{ showcase.number }} </a>
-    </li>
-  {% endfor %}
-  </ul>
+    <div class="mt-1 mb-5 ml-0 mr-0">
+      {% if page.alertdeadline %}
+        {% include deadline_alert.html %}
+      {% endif %}
+    </div>
+
+    <p>
+      <h3>
+        Poster session 1 &centerdot;
+        <small class="text-muted"> 16-17 September 2020</small>
+      </h3>
+    </p>
+    <p class = "mb-1">
+      <span class = "lead">Main themes</span>
+      <br>
+      {% include badges/health.html %}
+    </p>
+    <p>
+      <span class = "lead">Cross-cutting themes</span>
+      <br>
+      {% include badges/policy.html %}
+      {% include badges/tools.html %}
+      {% include badges/ethics.html %}
+    </p>
+
+    <p class = "mt-5">
+      <h3>
+        Poster session 2 &centerdot;
+        <small class="text-muted"> 23-24 September 2020</small>
+      </h3>
+    </p>
+    <p>
+      <span class = "lead">Main themes</span>
+      <br>
+      {% include badges/economic.html %}
+      {% include badges/engineer.html %}
+      {% include badges/secure.html %}
+      {% include badges/social.html %}
+    </p>
+    <p>
+      <span class = "lead">Cross-cutting themes</span>
+      <br>
+      {% include badges/policy.html %}
+      {% include badges/tools.html %}
+      {% include badges/ethics.html %}
+      {% include badges/theory.html %}
+    </p>
 
 </div>
