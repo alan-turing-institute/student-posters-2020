@@ -59,10 +59,10 @@ conference:
 
 collections:
   showcases:
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
     output: true
   programme:
-    permalink: /:collection/:title
+    permalink: /:collection/:title/
     output: true
 
 
