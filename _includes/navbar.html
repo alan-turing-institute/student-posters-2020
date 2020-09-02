@@ -2,8 +2,7 @@
   <div class="container">
     <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,16 +10,43 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-          </li>
-          {%- endif -%}
-        {% endfor -%}
+        {% for link in site.conference.navigation.links %}
+          {% if link.menu %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown{{ forloop.index0 }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ link.name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbar-dropdown{{ forloop.index0 }}">
+                {% for sublink in link.menu %}
+                  {% if sublink.disabled %}
+                    <a class="dropdown-item disabled" href="#">
+                      {{ sublink.name }}
+                    </a>
+                  {% else %}
+                    <a class="dropdown-item" href="{% if sublink.absolute_url %}{{ sublink.absolute_url }}{% else %}{{ sublink.relative_url | prepend: site.baseurl }}{% endif %}">
+                      {{ sublink.name }}
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </li>
+          {% else %}
+            <li class="nav-item {% if page.url contains link.relative_url %}active{% endif %}">
+              {% if link.disabled %}
+                <a class="nav-link disabled" href="#">
+                  {{ link.name }}
+                </a>
+              {% else %}
+                <a class="nav-link" href="{% if link.absolute_url %}{{ link.absolute_url }}{% else %}{{ link.relative_url | prepend: site.baseurl }}{% endif %}">
+                  {{ link.name }}
+                </a>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
-      
+    </div>
+
       <div class="navbar-brand navbar-logo mr-0 w-25 text-right overflow-hidden">
         <a href="https://www.turing.ac.uk/">
             <img src="{{ site.baseurl }}/assets/images/turing_logo_white.webp"

@@ -37,18 +37,51 @@ exclude:
 
 # ---
 
+conference:
+  navigation:
+    links:
+      - name: Programme
+        menu:
+          - name: 17 Sep
+            relative_url: /programme/session-1/
+          - name: 24 Sep
+            relative_url: /programme/session-2/
+      - name: Showcase
+        menu:
+          - name: 16-17 Sep
+            relative_url: /showcases/session-1/
+          - name: 23-24 Sep
+            relative_url: /showcases/session-2/
+      - name: Registration
+        relative_url: /registration/
+      - name: Author guidelines
+        relative_url: /guidelines/
+
 collections:
   showcases:
+    permalink: /:collection/:title
+    output: true
+  programme:
+    permalink: /:collection/:title
     output: true
 
 
 defaults:
   - scope:
       path: ""
-      type: "showcases"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
     values:
       layout: "default"
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+  - scope:
+      path: ""
+      type: "showcases"
+    values:
+      layout: "showcase"
+  - scope:
+      path: ""
+      type: "programme"
+    values:
+      layout: "programme"

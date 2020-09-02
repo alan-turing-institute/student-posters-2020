@@ -10,7 +10,11 @@ layout: default
   </header>
 
   <section>
-    {{ content }}
+    {% if page.production == false %}
+      {% include coming-soon.html %}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </section>
 
 </article>

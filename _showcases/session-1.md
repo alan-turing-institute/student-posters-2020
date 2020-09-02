@@ -1,8 +1,6 @@
 ---
-number: 1
-layout: showcase
-title: Showcase 1
-
+title: Session 1
+production: false
 students:
   - Student A
   - Student B
