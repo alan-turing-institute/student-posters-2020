@@ -2,9 +2,12 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
-hometitle: Student Showcase 2020
+alertdeadline: true
 ---
 
-We're
-
-The Student posters initiative is aimed at ...
+A showcase of
+<a style="strong" href="https://www.turing.ac.uk/">Turing</a>
+projects across multiple
+<a style="strong" href="https://www.turing.ac.uk/people/doctoral-students">student cohorts</a>
+and
+<a style="strong" href="https://www.turing.ac.uk/research/research-programmes">research themes</a>.
