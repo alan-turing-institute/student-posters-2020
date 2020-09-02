@@ -30,7 +30,6 @@ See below for further guidelines and advice on each of these categories.
 	</ul>  
 </p>
 
-
 ## Posters
 
 - You have to submit a poster in order to participate in the showcase as an

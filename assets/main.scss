@@ -80,5 +80,10 @@ $natural: #ced4da !default;
 }
 
 .border-2 {
-    border-width:2px !important;
+  border-width:2px !important;
+}
+
+h2{
+	margin-top: 2*$spacer;
+  margin-bottom: 2*$spacer;
 }
