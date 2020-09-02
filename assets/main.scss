@@ -11,3 +11,67 @@
 .img-fluid {
 	max-width: 60%
 }
+
+.font-normal {
+  .badge {
+    font-size: .85em;
+  }
+}
+
+$policy: $gray-600 !default;
+$tools: $gray-600 !default;
+$ethics: $gray-600 !default;
+$theory: $gray-600 !default;
+
+$health: $info !default;
+$economic: $success !default;
+$engineer: $danger !default;
+$secure: $dark !default;
+$social: $secondary !default;
+$natural: #ced4da !default;
+
+.badge-policy {
+	background-color: $policy;
+}
+
+.badge-tools {
+	background-color: $tools;
+}
+
+.badge-ethics {
+	background-color: $ethics;
+}
+
+.badge-theory {
+	background-color: $theory;
+}
+
+.badge-health {
+	background-color: $health;
+}
+
+.badge-economic {
+	background-color: $economic;
+}
+
+.badge-engineer {
+	background-color: $engineer;
+}
+
+.badge-secure {
+	background-color: $secure;
+}
+
+.badge-social {
+	background-color: $social;
+}
+
+.badge-natural {
+	background-color: $natural;
+}
+
+.badge:hover {
+	color: $gray-300;
+	text-decoration: none;
+	cursor: pointer;
+}
