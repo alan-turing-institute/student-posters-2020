@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Author guidelines
+title: To authors
 permalink: /guidelines/
 ---
 
