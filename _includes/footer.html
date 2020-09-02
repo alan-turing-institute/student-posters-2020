@@ -1,37 +1,29 @@
 
-<div class="py-5 border-top">
+<div class="py-3 border-top">
   <div class="container">
-
-    <p class="h5 mb-3">{{ site.title | escape }}</p>
 
     <div class="row">
 
-      <div class="col-sm">
-        <ul class="list-unstyled">
-          <li>
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-          </li>
-          {%- if site.email -%}
-            <li>
-              <a href="mailto:{{ site.email }}">
-                {{ site.email }}
-              </a>
-            </li>
-          {%- endif -%}
-        </ul>
+      <div class="col-sm-4">
+        <p class="h5">{{ site.title | escape }}</p>
       </div>
 
+      <div class="col-sm-8 text-right">
+        <p class="lead small">Please submit any questions or queries to
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </p>
+      </div>
+
+    </div>
+
+    <div class="row">
 
       <div class="col-sm text-right">
-        <p>{{- site.description | escape -}}</p>
-
-        <p>
-          <a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
-        </p>
+        <p class="lead small">Organised by
+          <a href="https://www.turing.ac.uk/people/enrichment-students/pedro-pinto-da-silva">Pedro</a>
+          and
+          <a href="https://www.turing.ac.uk/people/business-team/mishka-nemes">Mishka</a>
+          </p>
       </div>
 
     </div>

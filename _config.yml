@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Turing-PHD20
-email:
+email: student-posters@turing.ac.uk
 description:
 baseurl: "/student-posters-2020" # the subpath of your site, e.g. /blog
 url: "https://alan-turing-institute.github.io"
