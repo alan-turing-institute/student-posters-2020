@@ -1,4 +1,9 @@
-# student-posters-2020
-Website of the Turing's first student poster series on Sep 2020
+# Turing-PHD20
 
-[![Travis build status](https://travis-ci.org/alan-turing-institute/student-posters-2020.svg?branch=master)](https://travis-ci.org/alan-turing-institute/student-posters-2020)
+https://alan-turing-institute.github.io/student-posters-2020/
+
+---
+
+A showcase of Turing projects across multiple student cohorts and research themes.
+
+![cover](assets/images/cover.png)
