@@ -11,6 +11,9 @@ layout: default
   <hr class="my-4">
 
   <div class="mt-1 mb-4 ml-0 mr-0">
+    {% if page.alertregistration %}
+      {% include registration_alert.html %}
+    {% endif %}
     {% if page.alertdeadline %}
       {% include deadline_alert.html %}
     {% endif %}
