@@ -5,6 +5,8 @@ permalink: /programme/
 ---
 
 
-<div class="jumbotron">
-  <h3 class="display-4">Coming soon!</h3>
+<div class="alert alert-light" role="alert">
+	<p class="lead mb-0">
+		<strong>Coming soon!</strong>
+	</p>
 </div>
