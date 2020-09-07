@@ -1,14 +1,5 @@
 library(tidyverse)
 
-# themes_map <- tribble(
-#   ~category, ~new_name, ~old_name,
-#   "main", "Healthy world", "Health and medical science",
-#   "main", "Economic world", "Finance and economics",
-#   "main", "Engineered world", "Data-centric engineering",
-#   "main", "Social and cultural world", "Urban analytics",
-#   "main", ""
-# )
-
 titles <- tribble(
   ~id, ~title, ~main_theme, ~cross_theme, ~student_url,
   1, "Towards Translating Network Science and Brain Graphs into Neurosurgery", "health", NA, "doctoral-students/anujan-poologaindran",
@@ -16,8 +7,8 @@ titles <- tribble(
   3, "Within and between classroom transmission patterns of seasonal influenza inform management of COVID-19 in schools", "health", "policy", "enrichment-students/akira-endo",
   4, "Intriguing Properties of Adversarial ML Attacks in the Problem Space", "secure", "tools", "enrichment-students/feargus-pendlebury",
   5, "Estimating counterfactual treatment outcomes over time through adversarially balanced representations", "health", "tools", "doctoral-students/ioana-bica",
-  6, "", "health", NA, "enrichment-students/katriona-goldmann",
-  7, "", "health", "tools", "enrichment-students/katriona-goldmann",
+  6, "Using comprehensive transcriptome analysis to reveal the landscape of pathobiology in early rheumatoid arthritis", "health", NA, "enrichment-students/katriona-goldmann",
+  7, "FAIR-Biomed: A browser extension for accessing open data in the biomedical domain", "health", "tools", "enrichment-students/katriona-goldmann",
   8, "Regulation of AI and corresponding explainability practices", NA, "policy", "doctoral-students/keri-grieman",
   9, "Community detection - Bayesian inference for robust detection of assortative structure", "engineer", NA, "enrichment-students/lizhi-zhang",
   10, "Exploration and Exploitation in US Corporate Research", "economic", NA, "doctoral-students/nikolas-kuhlen",
