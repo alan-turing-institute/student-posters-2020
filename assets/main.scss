@@ -87,3 +87,19 @@ h2{
 	margin-top: 2*$spacer;
   margin-bottom: 2*$spacer;
 }
+
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+
+a.passive-link {
+	color: $body-color;
+}
+
+a.passive-link:hover {
+	text-decoration: underline;
+	color: $gray-800;
+}
