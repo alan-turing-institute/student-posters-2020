@@ -50,6 +50,8 @@ conference:
         relative_url: /registration/
       - name: Author guidelines
         relative_url: /guidelines/
+      - name: About
+        relative_url: /about/
 
 collections:
   programme:
