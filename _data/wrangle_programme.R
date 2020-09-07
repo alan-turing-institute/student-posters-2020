@@ -2,7 +2,7 @@ library(tidyverse)
 library(hms)
 
 zoom <- tribble(
-  ~showcase, ~room, ~time, ~poster_id, ~zoom_link, ~check,
+  ~showcase, ~room, ~time, ~poster_id, ~zoom_link, ~expected,
   1, 1, hms(hours = 10), 7, "https://turing-uk.zoom.us/j/98997146140", "katriona",
   1, 1, hms(hours = 11), 6, "https://turing-uk.zoom.us/j/93411880880", "katriona",
   1, 1, hms(hours = 14), 1, "https://turing-uk.zoom.us/j/94990403140", "anujan",
@@ -44,14 +44,7 @@ programme <-
   mutate(time = as_hms(datetime)) %>%
   left_join(zoom, by = c("showcase", "time", "room")) %>%
   mutate(poster_id = str_pad(as.character(poster_id), 2, "left", "0")) %>%
-  pivot_wider(names_from = room, values_from = c(poster_id, zoom_link, check)) %>%
-  left_join(posters, by = c("poster_id_1" = "poster_id")) %>%
-  left_join(posters, by = c("poster_id_2" = "poster_id"), suffix = c("_1", "_2")) %>%
-  mutate(time = format(as.POSIXct(time), "%H:%M")) %>%
-  select(showcase, time, poster_id_1, poster_id_2, student_1, student_2, 
-         file_id_1, file_id_2, title_1, 
-         title_2, zoom_link_1, zoom_link_2, email_1,
-         email_2, main_theme_1, main_theme_2, cross_theme_1, cross_theme_2,
-         student_url_1, student_url_2)
+  pivot_wider(names_from = room, values_from = c(poster_id, zoom_link, expected)) %>%
+  mutate(time = format(as.POSIXct(time), "%H:%M"))
 
 write_csv(programme, "programme.csv")

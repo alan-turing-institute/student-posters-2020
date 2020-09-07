@@ -1,15 +1,15 @@
-showcase,time,poster_id_1,poster_id_2,student_1,student_2,file_id_1,file_id_2,title_1,title_2,zoom_link_1,zoom_link_2,email_1,email_2,main_theme_1,main_theme_2,cross_theme_1,cross_theme_2,student_url_1,student_url_2
-1,10:00,07,05,Katriona Goldmann,Ioana Bica,07-katriona-goldmann,05-ioana-bica,To be defined,Estimating counterfactual treatment outcomes over time through adversarially balanced representations,https://turing-uk.zoom.us/j/98997146140,https://turing-uk.zoom.us/j/95880984986,kgoldmann@turing.ac.uk,ibica@turing.ac.uk,health,health,tools,tools,https://www.turing.ac.uk/people/enrichment-students/katriona-goldmann,https://www.turing.ac.uk/people/doctoral-students/ioana-bica
-1,11:00,06,17,Katriona Goldmann,Solon Karapanagiotis,06-katriona-goldmann,17-solon-karapanagiotis,To be defined,Tailored Bayes: a risk modelling framework under unequal classification costs,https://turing-uk.zoom.us/j/93411880880,https://turing-uk.zoom.us/j/99916467421,kgoldmann@turing.ac.yk,skarapanagiotis@turing.ac.uk,health,health,NA,tools,https://www.turing.ac.uk/people/enrichment-students/katriona-goldmann,https://www.turing.ac.uk/people/enrichment-students/solon-karapanagiotis
-1,12:00,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1,13:00,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1,14:00,01,03,Anujan Poologaindran,Endo Akira,01-anujan-poologaindran,03-endo-akira,To be defined,To be defined,https://turing-uk.zoom.us/j/94990403140,https://turing-uk.zoom.us/j/91621172306,anujanindran@turing.ac.uk,akira.endo@lshtm.ac.uk,health,health,NA,policy,https://www.turing.ac.uk/people/doctoral-students/anujan-poologaindran,https://www.turing.ac.uk/people/enrichment-students/akira-endo
-1,15:00,18,13,Tugce Oruc,Prateek Gupta,18-tugce-oruc,13-prateek-gupta,Protein domain-domain interaction prediction via deep neural networks,Early Warning Signals for COVID-19 Using Probabilistic Risk Awareness Framework,https://turing-uk.zoom.us/j/93941631356,https://turing-uk.zoom.us/j/94564694583,txo618@bham.ac.uk,pgupta@turing.ac.uk,health,health,NA,tools,https://www.turing.ac.uk/people/enrichment-students/tugce-oruc,https://www.turing.ac.uk/people/doctoral-students/prateek-gupta
-1,16:00,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-2,10:00,14,04,Risa Ueno,Feargus Pendlebury,14-risa-ueno,04-feargus-pendlebury,To be defined,Intriguing Properties of Adversarial ML Attacks in the Problem Space,https://turing-uk.zoom.us/j/94365127915,https://turing-uk.zoom.us/j/98703863600,rueno@turing.ac.uk,fpendlebury@turing.ac.uk,engineer,secure,policy,tools,https://www.turing.ac.uk/people/enrichment-students/risa-ueno,https://www.turing.ac.uk/people/enrichment-students/feargus-pendlebury
-2,11:00,08,11,Keri Grieman,Obi Thompson Sargoni,08-keri-grieman,11-obi-thompson-sargoni,To be defined,An agent-based model of jaywalking: Representing contested street space in models of pedestrian movement,https://turing-uk.zoom.us/j/94365127915,https://turing-uk.zoom.us/j/92929385919,kgrieman@turing.ac.uk,othompsonsargoni@turing.ac.uk,NA,social,policy,NA,https://www.turing.ac.uk/people/doctoral-students/keri-grieman,https://www.turing.ac.uk/people/enrichment-students/obi-thompson-sargoni
-2,12:00,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-2,13:00,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-2,14:00,10,02,Nikolas Kuhlen,Daniele Guariso,10-nikolas-kuhlen,02-daniele-guariso,Exploration and Exploitation in US Corporate Research,To be defined,https://turing-uk.zoom.us/j/99777001117,https://turing-uk.zoom.us/j/98190487545,nkuhlen@turing.ac.uk,dguariso@turing.ac.uk,economic,economic,NA,policy,https://www.turing.ac.uk/people/doctoral-students/nikolas-kuhlen,https://www.turing.ac.uk/people/enrichment-students/daniele-guariso
-2,15:00,09,15,Lizhi Zhang,Ryan Chan,09-lizhi-zhang,15-ryan-chan,Community detection - Bayesian inference for robust detection of assortative structure,Hierarchical Monte Carlo Fusion,https://turing-uk.zoom.us/j/92927994244,https://turing-uk.zoom.us/j/94514516679,lzhang@turing.ac.uk,rchan@turing.ac.uk,engineer,engineer,NA,theory,https://www.turing.ac.uk/people/enrichment-students/lizhi-zhang,https://www.turing.ac.uk/people/doctoral-students/ryan-chan
-2,16:00,12,NA,Pedro Pinto da Silva,NA,12-pedro-pinto-da-silva,NA,Identification and impact assessment of recurring traffic bottlenecks using ANPR technology,NA,https://turing-uk.zoom.us/j/94586862227,NA,p.pinto-da-silva2@newcastle.ac.uk,NA,engineer,NA,policy,NA,https://www.turing.ac.uk/people/enrichment-students/pedro-pinto-da-silva,NA
+datetime,showcase,time,poster_id_1,poster_id_2,zoom_link_1,zoom_link_2,expected_1,expected_2
+2020-09-17T10:00:00Z,1,10:00,07,05,https://turing-uk.zoom.us/j/98997146140,https://turing-uk.zoom.us/j/95880984986,katriona,ioana
+2020-09-17T11:00:00Z,1,11:00,06,17,https://turing-uk.zoom.us/j/93411880880,https://turing-uk.zoom.us/j/99916467421,katriona,solon
+2020-09-17T12:00:00Z,1,12:00,NA,NA,NA,NA,NA,NA
+2020-09-17T13:00:00Z,1,13:00,NA,NA,NA,NA,NA,NA
+2020-09-17T14:00:00Z,1,14:00,01,03,https://turing-uk.zoom.us/j/94990403140,https://turing-uk.zoom.us/j/91621172306,anujan,akira
+2020-09-17T15:00:00Z,1,15:00,18,13,https://turing-uk.zoom.us/j/93941631356,https://turing-uk.zoom.us/j/94564694583,tugce,prateek
+2020-09-17T16:00:00Z,1,16:00,NA,NA,NA,NA,NA,NA
+2020-09-24T10:00:00Z,2,10:00,14,04,https://turing-uk.zoom.us/j/94365127915,https://turing-uk.zoom.us/j/98703863600,risa,feargus
+2020-09-24T11:00:00Z,2,11:00,08,11,https://turing-uk.zoom.us/j/94365127915,https://turing-uk.zoom.us/j/92929385919,keri,obi
+2020-09-24T12:00:00Z,2,12:00,NA,NA,NA,NA,NA,NA
+2020-09-24T13:00:00Z,2,13:00,NA,NA,NA,NA,NA,NA
+2020-09-24T14:00:00Z,2,14:00,10,02,https://turing-uk.zoom.us/j/99777001117,https://turing-uk.zoom.us/j/98190487545,nikolas,daniele
+2020-09-24T15:00:00Z,2,15:00,09,15,https://turing-uk.zoom.us/j/92927994244,https://turing-uk.zoom.us/j/94514516679,lizhi,ryan
+2020-09-24T16:00:00Z,2,16:00,12,NA,https://turing-uk.zoom.us/j/94586862227,NA,pedro,NA
