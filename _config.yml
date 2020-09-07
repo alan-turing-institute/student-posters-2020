@@ -46,21 +46,12 @@ conference:
             relative_url: /programme/session-1/
           - name: 24 Sep
             relative_url: /programme/session-2/
-#      - name: Posters
-#        menu:
-#          - name: 16-17 Sep
-#            relative_url: /showcases/session-1/
-#          - name: 23-24 Sep
-#            relative_url: /showcases/session-2/
       - name: Registration
         relative_url: /registration/
       - name: Author guidelines
         relative_url: /guidelines/
 
 collections:
-  #showcases:
-  #  permalink: /:collection/:title/
-  #  output: true
   programme:
     permalink: /:collection/:title/
     output: true
@@ -78,11 +69,6 @@ defaults:
       path: "assets/images"
     values:
       image: true
-#  - scope:
-#      path: ""
-#      type: "showcases"
-#    values:
-#      layout: "showcase"
   - scope:
       path: ""
       type: "posters"
