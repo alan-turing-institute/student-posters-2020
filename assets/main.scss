@@ -103,3 +103,12 @@ a.passive-link:hover {
 	text-decoration: underline;
 	color: $gray-800;
 }
+
+a.passive-link-header {
+	color: $gray-700;
+}
+
+a.passive-link-header:hover {
+	text-decoration: underline;
+	color: $black;
+}
