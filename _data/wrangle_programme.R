@@ -17,8 +17,8 @@ zoom <- tribble(
   2, 1, hms(hours = 15), 9, "https://turing-uk.zoom.us/j/92927994244", "lizhi",
   2, 1, hms(hours = 16), 12, "https://turing-uk.zoom.us/j/94586862227", "pedro",
   2, 2, hms(hours = 10), 4, "https://turing-uk.zoom.us/j/98703863600", "feargus",
-  2, 2, hms(hours = 11), 2, "https://turing-uk.zoom.us/j/98190487545", "daniele",
-  2, 2, hms(hours = 14), 11, "https://turing-uk.zoom.us/j/92929385919", "obi",
+  2, 2, hms(hours = 11), 11, "https://turing-uk.zoom.us/j/92929385919", "obi",
+  2, 2, hms(hours = 14), 2, "https://turing-uk.zoom.us/j/98190487545", "daniele",
   2, 2, hms(hours = 15), 15, "https://turing-uk.zoom.us/j/94514516679", "ryan"
 )
 
