@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+{% if page.production == true %}
+  {% assign poster_link = "" %}
+{% else %}
+  {% assign poster_link = "disabled" %}
+{% endif %}
+
+<article>
+
+	<div class="container p-4 my-4 border">
+		<p class="h3">
+			{{ page.title }}
+		</p>
+
+		<p class = "mb-3">
+			<div class="row">
+				<div class = "h4 text-muted col-sm">
+	  			<a target="_blank" href="{{ page.student_url }}" class="passive-link">{{ page.student }}</a>
+	  		</div>
+			 <div class="col-sm text-muted h6 text-right">
+				 {{ page.cohort }} student &centerdot;
+				 <a href="mailto:{{ page.email }}" class="">Email</a>
+			 </div>
+		 </div>
+		</p>
+
+		<hr class="my-4">
+
+		<p class="lead">
+			{{ page.abstract | smartify }}
+		</p>
+
+		{% assign main_theme = site.data.themes.main[page.main_theme] %}
+		{% assign cross_theme = site.data.themes.cross[page.cross_theme] %}
+
+		{% if main_theme != blank %}
+			<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ page.main_theme }}">{{ main_theme.name }}</a>
+		{% endif %}
+
+		{% if cross_theme != blank %}
+			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ page.cross_theme }}">{{ cross_theme.name }}</a>
+		{% endif %}
+
+	<hr class="my-4">
+
+		<a target="_blank" href="{{ site.baseurl }}/assets/posters/{{ page.file_id }}.pdf" role="button" aria-disabled="true" class="btn btn-dark btn-block {{ poster_link }}" style="max-width:520px; white-space:nowrap; overflow:hidden;">Download poster</a>
+
+	</div>
+
+</article>
