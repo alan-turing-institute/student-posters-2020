@@ -38,27 +38,30 @@ layout: page
 				<tr>
 					<th scope = "row" class="text-center align-middle" ><span class="h5">{{ slot.time }}</span></th>
 
-					{% if slot.student_1 == "NA" %}
+					{% if slot.poster_id_1 == "NA" %}
 						<td></td>
 					{% else %}
+
+            {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_1 | first %}
+
 						<td class="align-bottom">
               <p class = "mb-1">
-                <a target="_blank" href="{{ site.baseurl }}/posters/{{ slot.poster_id_1 }}/" class="passive-link"><strong>{{ slot.title_1 }}</strong></a>
+                <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
               </p>
               <p class = "mb-2">
-                <a target="_blank" href="{{ slot.student_url_1 }}" class="passive-link"><em>{{ slot.student_1 }}</em></a>
+                <a target="_blank" href="{{ poster.student_url }}" class="passive-link"><em>{{ poster.student }}</em></a>
               </p>
 
-              {% assign main_theme = site.data.themes.main[slot.main_theme_1] %}
-          		{% assign cross_theme = site.data.themes.cross[slot.cross_theme_1] %}
+              {% assign main_theme = site.data.themes.main[poster.main_theme] %}
+          		{% assign cross_theme = site.data.themes.cross[poster.cross_theme] %}
 
               <p>
                 {% if main_theme != blank %}
-            			<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ slot.main_theme_1 }}">{{ main_theme.name }}</a>
+            			<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ poster.main_theme }}">{{ main_theme.name }}</a>
             		{% endif %}
 
             		{% if cross_theme != blank %}
-            			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ slot.cross_theme_1 }}">{{ cross_theme.name }}</a>
+            			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ poster.cross_theme }}">{{ cross_theme.name }}</a>
             		{% endif %}
               </p>
 
@@ -66,7 +69,7 @@ layout: page
 
               <div class="row">
         				<div class = "col-sm">
-        	  		<a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ slot.file_id_1 }}.pdf" class="btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
+        	  		<a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ poster.file_id }}.pdf" class="btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
         	  		</div>
         			 <div class="col-sm">
                  <a target="_blank" role="button" aria-disabled="true" href="{{ slot.zoom_link_1 }}" class="btn btn-sm btn-link btn-block">Zoom</a>
@@ -76,45 +79,49 @@ layout: page
 
 					{% endif %}
 
-					{% if slot.student_2 == "NA" %}
+					{% if slot.poster_id_2 == "NA" %}
 						<td></td>
 					{% else %}
-					<td class="align-bottom">
-            <p class = "mb-1">
-              <a target="_blank" href="{{ site.baseurl }}/posters/{{ slot.poster_id_2 }}/" class="passive-link"><strong>{{ slot.title_2 }}</strong></a>
-            </p>
-            <p class = "mb-2">
-              <a target="_blank" href="{{ slot.student_url_2 }}" class="passive-link"><em>{{ slot.student_2 }}</em></a>
-            </p>
 
-            {% assign main_theme = site.data.themes.main[slot.main_theme_2] %}
-            {% assign cross_theme = site.data.themes.cross[slot.cross_theme_2] %}
+            {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_2 | first %}
 
-            <p>
-              {% if main_theme != blank %}
-                <a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ slot.main_theme_2 }}">{{ main_theme.name }}</a>
-              {% endif %}
+            <td class="align-bottom">
+              <p class = "mb-1">
+                <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
+              </p>
+              <p class = "mb-2">
+                <a target="_blank" href="{{ poster.student_url }}" class="passive-link"><em>{{ poster.student }}</em></a>
+              </p>
 
-              {% if cross_theme != blank %}
-                <a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ slot.cross_theme_2 }}">{{ cross_theme.name }}</a>
-              {% endif %}
-            </p>
+              {% assign main_theme = site.data.themes.main[poster.main_theme] %}
+              {% assign cross_theme = site.data.themes.cross[poster.cross_theme] %}
 
-            <hr class="my-1">
+              <p>
+                {% if main_theme != blank %}
+                  <a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ poster.main_theme }}">{{ main_theme.name }}</a>
+                {% endif %}
 
-						<div class="row">
-        				<div class = "col-sm">
-        	  		<a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ slot.file_id_2 }}.pdf" class="btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
-        	  		</div>
-        			 <div class="col-sm">
+                {% if cross_theme != blank %}
+                  <a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ poster.cross_theme }}">{{ cross_theme.name }}</a>
+                {% endif %}
+              </p>
+
+              <hr class="my-1">
+
+              <div class="row">
+                <div class = "col-sm">
+                <a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ poster.file_id }}.pdf" class="btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
+                </div>
+               <div class="col-sm">
                  <a target="_blank" role="button" aria-disabled="true" href="{{ slot.zoom_link_2 }}" class="btn btn-sm btn-link btn-block">Zoom</a>
-        			 </div>
-        		</div>
-					</td>
-					{% endif %}
+               </div>
+             </div>
+            </td>
 
-			{% endif %}
+          {% endif %}
 
-		{% endfor %}
+      {% endif %}
+
+    {% endfor %}
 	</tbody>
 </table>
