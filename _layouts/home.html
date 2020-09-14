@@ -6,9 +6,14 @@ layout: default
 
   <h1 class="display-4">{{ site.title }}</h1>
 
-  <p class="lead"> {{ page.content }} </p>
-
-  <hr class="my-4">
+  <p class="lead">
+  	A showcase of
+  	<a style="strong" href="https://www.turing.ac.uk/">Turing</a>
+  	projects across
+  	<a style="strong" href="https://www.turing.ac.uk/people/doctoral-students">student cohorts</a>
+  	and
+  	<a style="strong" href="https://www.turing.ac.uk/research/research-programmes">research themes</a>.
+  </p>
 
   <div class="mt-1 mb-4 ml-0 mr-0">
     {% if page.alertregistration %}
@@ -19,53 +24,33 @@ layout: default
     {% endif %}
   </div>
 
+  <hr class="my-4">
+
+  <p>
+    The Turing is pleased to host on <strong>24 September 2020</strong>
+    the first virtual research showcase led by its student community.
+    This initiative aims to highlight the work being carried out by students who
+    have been funded by the Institute through either its Doctoral or Enrichment
+    scheme. This is an excellent opportunity for you to find out more about the
+    on-going work at the Turing and forge new collaborations.
+  </p>
+
+  <p>
+    Register on {% include eventbrite.html %} to receive Zoom details and please
+    support our students by attending at least 2 Q&A sessions.
+  </p>
+
+  <p>
+    For any queries please email us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </p>
+
+  <p>
+    <a role="button" aria-disabled="true" href="{{ site.baseurl }}/programme/" class="border rounded btn btn-primary">Schedule</a>
+  </p>
+
+  <hr class="my-4">
+
   <img src="{{ site.baseurl }}/assets/images/cover.jpg"
        class="img-fluid rounded" alt="Event poster">
-
-  <div class="border border-2 rounded p-3 mt-4">
-    <p class = "h3">
-      <a href="{{ site.baseurl }}{% link _programme/session-1.md %}" class="passive-link-header">
-        Poster session 1 &centerdot;
-        <small class="text-muted"> 16-17 September 2020</small>
-      </a>
-    </p>
-    <p class = "mb-1">
-      <span class = "lead">Main themes</span>
-      <br>
-      {% include badges/health.html %}
-    </p>
-    <p>
-      <span class = "lead">Cross-cutting themes</span>
-      <br>
-      {% include badges/policy.html %}
-      {% include badges/tools.html %}
-      {% include badges/ethics.html %}
-    </p>
-  </div>
-
-  <div class="border border-2 rounded p-3 mt-3">
-    <p class = "h3">
-      <a href="{{ site.baseurl }}{% link _programme/session-2.md %}" class="passive-link-header">
-        Poster session 2 &centerdot;
-        <small class="text-muted"> 23-24 September 2020</small>
-      </a>
-    </p>
-    <p class = "mb-1">
-      <span class = "lead">Main themes</span>
-      <br>
-      {% include badges/economic.html %}
-      {% include badges/engineer.html %}
-      {% include badges/secure.html %}
-      {% include badges/social.html %}
-    </p>
-    <p>
-      <span class = "lead">Cross-cutting themes</span>
-      <br>
-      {% include badges/policy.html %}
-      {% include badges/tools.html %}
-      {% include badges/ethics.html %}
-      {% include badges/theory.html %}
-    </p>
-  </div>
 
 </div>

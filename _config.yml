@@ -40,23 +40,13 @@ exclude:
 conference:
   navigation:
     links:
-      - name: Poster sessions
-        menu:
-          - name: 17 Sep
-            relative_url: /programme/session-1/
-          - name: 24 Sep
-            relative_url: /programme/session-2/
-      - name: Registration
-        relative_url: /registration/
+      - name: Schedule
+        relative_url: /programme/
       - name: Author guidelines
         relative_url: /guidelines/
-      - name: About
-        relative_url: /about/
+
 
 collections:
-  programme:
-    permalink: /:collection/:title/
-    output: true
   posters:
     permalink: /:collection/:name/
     output: true
