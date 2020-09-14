@@ -73,6 +73,9 @@ posters <- read_csv(
   mutate(file_id = str_to_lower(file_id)) %>%
   mutate(file_id = str_replace_all(file_id, " ", "-"))
 
+# posters <- posters %>%
+#   mutate(cancel = poster_id == "01")
+
 write_csv(posters, "posters.csv")
 
 frontmatter <- function(x) {
@@ -96,6 +99,8 @@ frontmatter <- function(x) {
   ---
   ")
 }
+
+# cancel: {tolower(x$cancel)}
 
 posters %>%
   group_by(poster_id) %>%
