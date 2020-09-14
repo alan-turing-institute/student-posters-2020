@@ -44,12 +44,20 @@ layout: page
 
             {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_1 | first %}
 
+						{% assign student_names = poster.student | split: ";" %}
+						{% assign student_urls = poster.student_url | split: ";" %}
+
 						<td class="align-bottom">
               <p class = "mb-1">
                 <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
               </p>
               <p class = "mb-2">
-                <a target="_blank" href="{{ poster.student_url }}" class="passive-link"><em>{{ poster.student }}</em></a>
+								{% for name in student_names %}
+									{% if forloop.index > 1 %}
+										and
+									{% endif %}
+								  <a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
+								{% endfor %}
               </p>
 
               {% assign main_theme = site.data.themes.main[poster.main_theme] %}
@@ -83,12 +91,20 @@ layout: page
 
             {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_2 | first %}
 
+						{% assign student_names = poster.student | split: ";" %}
+						{% assign student_urls = poster.student_url | split: ";" %}
+
             <td class="align-bottom">
               <p class = "mb-1">
                 <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
               </p>
               <p class = "mb-2">
-                <a target="_blank" href="{{ poster.student_url }}" class="passive-link"><em>{{ poster.student }}</em></a>
+								{% for name in student_names %}
+									{% if forloop.index > 1 %}
+										and
+									{% endif %}
+								  <a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
+								{% endfor %}
               </p>
 
               {% assign main_theme = site.data.themes.main[poster.main_theme] %}

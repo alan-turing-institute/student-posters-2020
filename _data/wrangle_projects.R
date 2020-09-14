@@ -71,7 +71,17 @@ posters <- read_csv(
   rename(poster_id = id) %>%
   mutate(file_id = str_glue("{poster_id}-{student}")) %>%
   mutate(file_id = str_to_lower(file_id)) %>%
-  mutate(file_id = str_replace_all(file_id, " ", "-"))
+  mutate(file_id = str_replace_all(file_id, " ", "-")) %>%
+  # modify names
+  mutate(student = case_when(
+    poster_id == "03" ~ "Akira Endo",
+    poster_id == "08" ~ str_c(student, ";Joseph Early"),
+    TRUE ~ student
+  )) %>%
+  mutate(student_url = case_when(
+    poster_id == "08" ~ str_c(as.character(student_url), ";https://www.turing.ac.uk/people/doctoral-students/joseph-early"),
+    TRUE ~ as.character(student_url)
+  ))
 
 # posters <- posters %>%
 #   mutate(cancel = poster_id == "01")
@@ -79,20 +89,27 @@ posters <- read_csv(
 write_csv(posters, "posters.csv")
 
 frontmatter <- function(x) {
+  tmp_student <- glue::glue_collapse(x$student[[1]], sep = '\n  - ')
+  tmp_url <- glue::glue_collapse(x$student_url[[1]], sep = '\n  - ')
+  tmp_email <- glue::glue_collapse(x$email[[1]], sep = '\n  - ')
+
   glue::glue("
   ---
   poster_id: |
     {x$poster_id}
-  student: {x$student}
+  student:
+    - {tmp_student}
   title: |
     {x$title}
   abstract: |
     {x$abstract}
-  email: {x$email}
+  email:
+    - {tmp_email}
   cohort: {x$cohort}
   main_theme: {x$main_theme}
   cross_theme: {x$cross_theme}
-  student_url: {x$student_url}
+  student_url:
+    - {tmp_url}
   file_id: |
     {x$file_id}
   production: {x$production}
@@ -103,6 +120,9 @@ frontmatter <- function(x) {
 # cancel: {tolower(x$cancel)}
 
 posters %>%
+  mutate(
+    across(c(student,student_url), ~ str_split(.x, ";"))
+  ) %>%
   group_by(poster_id) %>%
   group_split() %>%
   map(~{
