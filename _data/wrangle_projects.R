@@ -35,9 +35,9 @@ posters <- read_csv(
     extra = col_skip()
   )
 ) %>%
-  mutate(programme = 
-    if_else(row_number() == 9, 
-            "Health and medical science;Data-centric engineering", 
+  mutate(programme =
+    if_else(row_number() == 9,
+            "Health and medical science;Data-centric engineering",
             programme)
   ) %>%
   mutate(cohort = as.factor(cohort)) %>%
@@ -57,9 +57,6 @@ posters <- read_csv(
                             abstract)) %>%
   mutate(abstract = if_else(id == 6,
                             str_remove(abstract, "Background"),
-                            abstract)) %>%
-  mutate(abstract = if_else(id == 17,
-                            str_remove(abstract, filter(titles, id == 17) %>% pull(title)),
                             abstract)) %>%
   mutate(abstract = if_else(id == 18,
                             str_remove(abstract, filter(titles, id == 18) %>% pull(title)),
@@ -106,4 +103,3 @@ posters %>%
   map(~{
     write_lines(frontmatter(.x), path = glue::glue("../_posters/{.x$poster_id}.md"))
   })
-  
