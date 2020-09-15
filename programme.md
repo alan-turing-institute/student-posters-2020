@@ -1,5 +1,5 @@
 ---
 production: false
 layout: programme
-title: Poster event
+title: Event schedule - 24 Sep
 ---

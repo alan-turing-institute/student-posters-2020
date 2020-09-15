@@ -2,47 +2,47 @@ library(tidyverse)
 library(hms)
 
 zoom <- tribble(
-  ~showcase, ~room, ~time, ~poster_id, ~zoom_link, ~expected,
-  1, 1, hms(hours = 10), 7, "https://turing-uk.zoom.us/j/98997146140", "katriona",
-  1, 1, hms(hours = 11), 6, "https://turing-uk.zoom.us/j/93411880880", "katriona",
-  1, 1, hms(hours = 14), 1, "https://turing-uk.zoom.us/j/94990403140", "anujan",
-  1, 1, hms(hours = 15), 18, "https://turing-uk.zoom.us/j/93941631356", "tugce",
-  1, 2, hms(hours = 10), 5, "https://turing-uk.zoom.us/j/95880984986", "ioana",
-  1, 2, hms(hours = 11), 17, "https://turing-uk.zoom.us/j/99916467421", "solon",
-  1, 2, hms(hours = 14), 3, "https://turing-uk.zoom.us/j/91621172306", "akira",
-  1, 2, hms(hours = 15), 13, "https://turing-uk.zoom.us/j/94564694583", "prateek",
-  2, 1, hms(hours = 10), 14, "https://turing-uk.zoom.us/j/94365127915", "risa",
-  2, 1, hms(hours = 11), 8, "https://turing-uk.zoom.us/j/94365127915", "keri",
-  2, 1, hms(hours = 14), 10, "https://turing-uk.zoom.us/j/99777001117", "nikolas",
-  2, 1, hms(hours = 15), 9, "https://turing-uk.zoom.us/j/92927994244", "lizhi",
-  2, 1, hms(hours = 16), 12, "https://turing-uk.zoom.us/j/94586862227", "pedro",
-  2, 2, hms(hours = 10), 4, "https://turing-uk.zoom.us/j/98703863600", "feargus",
-  2, 2, hms(hours = 11), 11, "https://turing-uk.zoom.us/j/92929385919", "obi",
-  2, 2, hms(hours = 14), 2, "https://turing-uk.zoom.us/j/98190487545", "daniele",
-  2, 2, hms(hours = 15), 15, "https://turing-uk.zoom.us/j/94514516679", "ryan"
+  ~room, ~poster_id, ~zoom_link, ~expected,
+  # room 1
+  1, 7, "", "katriona",
+  1, 6, "", "katriona",
+  1, 18,"", "tugce",
+  1, 5, "", "ioana",
+  1, 17,"", "solon",
+  1, 3, "", "akira",
+  1, 13,"", "prateek",
+  1, 14,"", "risa",
+  1, 01,"", "anujan",
+  # room 2
+  2, 8, "", "keri",
+  2, 10, "", "nikolas",
+  2, 9, "", "lizhi",
+  2, 15, "", "ryan",
+  2, 4, "", "feargus",
+  2, 11, "", "obi",
+  2, 2, "", "daniele",
+  2, 12, "", "pedro",
+  2, NA, NA, NA
 )
 
-showcase1 <- lubridate::ymd("2020-09-17") %>% lubridate::as_datetime()
-showcase2 <- lubridate::ymd("2020-09-24") %>% lubridate::as_datetime()
+turing_zoom_url <- "https://turing-uk.zoom.us/j/"
 
-start_hour <- hms::hms(hours = 10)
-end_hour <- hms::hms(hours = 16)
+showcase <- lubridate::ymd("2020-09-24") %>% lubridate::as_datetime()
 
-showcase1_slots <- 
-  seq(from = showcase1 + start_hour, to = showcase1 + end_hour, by = "1 hour") %>%
-  expand_grid(datetime = ., showcase = 1L, room = c(1L,2L))
-
-showcase2_slots <- 
-  seq(from = showcase2 + start_hour, to = showcase2 + end_hour, by = "1 hour") %>%
-  expand_grid(datetime = ., showcase = 2L, room = c(1L,2L))
+start_hour <- 10
+time_slots <- zoom %>%
+  filter(room == 1) %>% summarise(total = n()) %>% pull(total)
 
 programme <-
-  bind_rows(
-    showcase1_slots,
-    showcase2_slots
+  zoom %>%
+  group_by(room) %>%
+  mutate(datetime = seq(
+    from = showcase + hms(hours = start_hour),
+    to = showcase + hms(hours = start_hour + time_slots - 1),
+    by = "1 hour")
   ) %>%
   mutate(time = as_hms(datetime)) %>%
-  left_join(zoom, by = c("showcase", "time", "room")) %>%
+  mutate(zoom_link = str_c(turing_zoom_url, zoom_link)) %>%
   mutate(poster_id = str_pad(as.character(poster_id), 2, "left", "0")) %>%
   pivot_wider(names_from = room, values_from = c(poster_id, zoom_link, expected)) %>%
   mutate(time = format(as.POSIXct(time), "%H:%M"))

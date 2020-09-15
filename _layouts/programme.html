@@ -2,13 +2,6 @@
 layout: page
 ---
 
-<div class="alert alert-dismissible alert-info fade show" role="alert">
-	<p class="lead mb-0">
-		<strong>Poster titles link to abstracts.</strong>
-	</p>
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
-</div>
-
 {% if page.production == true %}
   {% assign poster_link = "" %}
 {% else %}
@@ -29,111 +22,67 @@ layout: page
 
 		{% for slot in programme %}
 
-			{% if slot.time == "12:00" or slot.time == "13:00" %}
-				<tr class="table-light">
-					<th scope = "row" class="text-center align-middle" ><span class="h5">{{ slot.time }}</span></th>
-					<td colspan="2" class="text-center">Lunch break</td>
+			<tr>
+
+				{% comment %}
+					Time
+				{% endcomment %}
+
+				<th scope = "row" class="text-center align-middle" ><span class="h5">{{ slot.time }}</span></th>
+
+				{% comment %}
+					Room 1 cell
+				{% endcomment %}
+
+				{% if slot.poster_id_1== "NA" %}
+					<td></td>
+
+				{% else %}
+
+					{% assign poster1 = site.data.posters | where: "poster_id", slot.poster_id_1 | first %}
+
+					{% include programme_room_cell.html
+						poster_id = poster1.poster_id
+						title = poster1.title
+						student = poster1.student
+						student_url = poster1.student_url
+						file_id = poster1.file_id
+						main_theme = poster1.main_theme
+						cross_theme = poster1.cross_theme
+						poster_link = poster_link
+						zoom_link = slot1.zoom_link_1
+					%}
+
+				{% endif %}
+
+				{% comment %}
+					Room 2 cell
+				{% endcomment %}
+
+				{% if slot.poster_id_2 == "NA" %}
+					<td></td>
+
+				{% else %}
+
+					{% assign poster2 = site.data.posters | where: "poster_id", slot.poster_id_2 | first %}
+
+					{% include programme_room_cell.html
+						poster_id = poster2.poster_id
+						title = poster2.title
+						student = poster2.student
+						student_url = poster2.student_url
+						file_id = poster2.file_id
+						main_theme = poster2.main_theme
+						cross_theme = poster2.cross_theme
+						poster_link = poster_link
+						zoom_link = slot.zoom_link_2
+					%}
+
+				{% endif %}
+
 				</tr>
-			{% else %}
-				<tr>
-					<th scope = "row" class="text-center align-middle" ><span class="h5">{{ slot.time }}</span></th>
-
-					{% if slot.poster_id_1 == "NA" %}
-						<td></td>
-					{% else %}
-
-            {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_1 | first %}
-
-						{% assign student_names = poster.student | split: ";" %}
-						{% assign student_urls = poster.student_url | split: ";" %}
-
-						<td class="align-bottom">
-              <p class = "mb-1">
-                <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
-              </p>
-              <p class = "mb-2">
-								{% for name in student_names %}
-									{% if forloop.index > 1 %}
-										and
-									{% endif %}
-								  <a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
-								{% endfor %}
-              </p>
-
-              {% assign main_theme = site.data.themes.main[poster.main_theme] %}
-          		{% assign cross_theme = site.data.themes.cross[poster.cross_theme] %}
-
-              <p>
-                {% if main_theme != blank %}
-            			<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ poster.main_theme }}">{{ main_theme.name }}</a>
-            		{% endif %}
-
-            		{% if cross_theme != blank %}
-            			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ poster.cross_theme }}">{{ cross_theme.name }}</a>
-            		{% endif %}
-              </p>
-
-              <div class="row">
-        				<div class = "col-sm">
-        	  		<a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ poster.file_id }}.pdf" class="border rounded btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
-        	  		</div>
-        			 <div class="col-sm">
-                 <a target="_blank" role="button" aria-disabled="true" href="{{ slot.zoom_link_1 }}" class="border rounded btn btn-sm btn-link btn-block">Zoom</a>
-        			 </div>
-        		 </div>
-  					</td>
-
-					{% endif %}
-
-					{% if slot.poster_id_2 == "NA" %}
-						<td></td>
-					{% else %}
-
-            {% assign poster = site.data.posters | where: "poster_id", slot.poster_id_2 | first %}
-
-						{% assign student_names = poster.student | split: ";" %}
-						{% assign student_urls = poster.student_url | split: ";" %}
-
-            <td class="align-bottom">
-              <p class = "mb-1">
-                <a target="_blank" href="{{ site.baseurl }}/posters/{{ poster.poster_id }}/" class="passive-link"><strong>{{ poster.title }}</strong></a>
-              </p>
-              <p class = "mb-2">
-								{% for name in student_names %}
-									{% if forloop.index > 1 %}
-										and
-									{% endif %}
-								  <a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
-								{% endfor %}
-              </p>
-
-              {% assign main_theme = site.data.themes.main[poster.main_theme] %}
-              {% assign cross_theme = site.data.themes.cross[poster.cross_theme] %}
-
-              <p>
-                {% if main_theme != blank %}
-                  <a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ poster.main_theme }}">{{ main_theme.name }}</a>
-                {% endif %}
-
-                {% if cross_theme != blank %}
-                  <a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ poster.cross_theme }}">{{ cross_theme.name }}</a>
-                {% endif %}
-              </p>
-
-              <div class="row">
-                <div class = "col-sm">
-                <a target="_blank" role="button" aria-disabled="true" href="{{ site.baseurl }}/assets/posters/{{ poster.file_id }}.pdf" class="border rounded btn btn-sm btn-link btn-block {{ poster_link }}">Poster</a>
-                </div>
-               <div class="col-sm">
-                 <a target="_blank" role="button" aria-disabled="true" href="{{ slot.zoom_link_2 }}" class="border rounded btn btn-sm btn-link btn-block">Zoom</a>
-               </div>
-             </div>
-            </td>
-
-          {% endif %}
-
-      {% endif %}
 
     {% endfor %}
+
 	</tbody>
 </table>
