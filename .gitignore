@@ -3,3 +3,5 @@ _site
 .jekyll-metadata
 *DS_Store
 *.Rhistory
+_data/passwords.csv
+_data/zoom_details.pdf
