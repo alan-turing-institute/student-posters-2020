@@ -1,0 +1,53 @@
+---
+title: "Alan Turing Institute student poster sessions: Author Q&A zoom details"
+author: "Pedro Pinto da Silva, Mishka Nemes"
+date: "24/09/2020"
+output: pdf_document
+classoption: landscape
+---
+
+Schedule: https://alan-turing-institute.github.io/student-posters-2020/programme/ 
+
+---
+
+```{r setup, echo = FALSE, message=F, warning=F}
+library(tidyverse)
+
+programme <- read_csv(
+  "programme.csv",
+  col_names = TRUE,
+  col_types = cols_only(
+    "time" = col_time(format = "%H:%M"),
+    "poster_id_1" = col_character(),
+    "poster_id_2" = col_character(),
+    "zoom_link_1" = col_character(),
+    "zoom_link_2" = col_character()
+  )
+)
+
+passwords <- read_csv(
+  "passwords.csv",
+  col_names = TRUE,
+  col_types = cols(
+    "poster_id" = col_character(),
+    "password" = col_character()
+  )
+)
+
+zoom_details <- 
+  programme %>%
+  inner_join(passwords, by = c("poster_id_2" = "poster_id")) %>%
+  inner_join(passwords, by = c("poster_id_1" = "poster_id"),
+             suffix = c("_1", "_2")) %>%
+  select(-starts_with("poster_id")) %>%
+  rename(
+    Time = time,
+    `Zoom room 1` = zoom_link_1,
+    `Zoom room 2` = zoom_link_2,
+    `Room 1 password` = password_1,
+    `Room 2 password` = password_2
+  )
+  
+
+knitr::kable(zoom_details)
+```
