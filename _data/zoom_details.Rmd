@@ -36,10 +36,11 @@ passwords <- read_csv(
 
 zoom_details <- 
   programme %>%
-  inner_join(passwords, by = c("poster_id_2" = "poster_id")) %>%
-  inner_join(passwords, by = c("poster_id_1" = "poster_id"),
+  left_join(passwords, by = c("poster_id_1" = "poster_id")) %>%
+  left_join(passwords, by = c("poster_id_2" = "poster_id"),
              suffix = c("_1", "_2")) %>%
   select(-starts_with("poster_id")) %>%
+  mutate(across(2:last_col(), ~ replace_na(.x, ""))) %>%
   rename(
     Time = time,
     `Zoom room 1` = zoom_link_1,
