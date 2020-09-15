@@ -2,42 +2,54 @@
 {% assign student_urls = include.student_url | split: ";" %}
 
 <td class="align-bottom">
-	<p class = "mb-1">
-		<a target="_blank" href="{{ site.baseurl }}/posters/{{ include.poster_id }}/" class="passive-link"><strong>{{ include.title }}</strong></a>
-	</p>
-	<p class = "mb-2">
-		{% for name in student_names %}
-			{% if forloop.index > 1 %}
-				and
-			{% endif %}
-			<a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
-		{% endfor %}
-	</p>
-
-	{% assign main_theme = site.data.themes.main[include.main_theme] %}
-	{% assign cross_theme = site.data.themes.cross[include.cross_theme] %}
-
-	<p>
-		{% if main_theme != blank %}
-			<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ include.main_theme }}">{{ main_theme.name }}</a>
+<p class = "mb-1">
+	<a target="_blank" href="{{ site.baseurl }}/posters/{{ include.poster_id }}/" class="passive-link"><strong>{{ include.title }}</strong></a>
+</p>
+<p class = "mb-2">
+	{% for name in student_names %}
+		{% if forloop.index > 1 %}
+			and
 		{% endif %}
+		<a target="_blank" href="{{ student_urls[forloop.index0] }}" class="passive-link"><em>{{ name }}</em></a>
+	{% endfor %}
+</p>
 
-		{% if cross_theme != blank %}
-			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ include.cross_theme }}">{{ cross_theme.name }}</a>
-		{% endif %}
-	</p>
+{% assign main_theme = site.data.themes.main[include.main_theme] %}
+{% assign cross_theme = site.data.themes.cross[include.cross_theme] %}
 
-	<div class="row">
-		<div class = "col-sm">
+<p>
+	{% if main_theme != blank %}
+		<a target="_blank" href="{{ main_theme.url }}" class="badge badge-pill badge-{{ include.main_theme }}">{{ main_theme.name }}</a>
+	{% endif %}
+
+	{% if cross_theme != blank %}
+		<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ include.cross_theme }}">{{ cross_theme.name }}</a>
+	{% endif %}
+</p>
+
+<div class="row">
+	<div class = "col-sm">
 		<a target="_blank" role="button" aria-disabled="true"
-			 href="{{ site.baseurl }}/assets/posters/{{ include.file_id }}.pdf"
-			 class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }}">Poster</a>
+		 	 href="{{ site.baseurl }}/assets/posters/{{ include.file_id }}.pdf"
+		   class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }}">
+		 	Poster
+	 </a>
+	</div>
+	{% if include.has_video == "TRUE" %}
+		<div class = "col-sm">
+			<a target="_blank" role="button" aria-disabled="true"
+				 href="{{ include.video_link }}"
+				 class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }} ">
+				 Video
+			</a>
 		</div>
-	 <div class="col-sm">
-		 <a target="_blank" role="button" aria-disabled="true"
-		 	  href="{{ include.zoom_link }}"
-				class="border rounded btn btn-sm btn-link btn-block">Zoom
-		 </a>
-	 </div>
+	{% endif %}
+ <div class="col-sm">
+	 <a target="_blank" role="button" aria-disabled="true"
+	 	  href="{{ include.zoom_link }}"
+			class="border rounded btn btn-sm btn-link btn-block">
+			Zoom
+	 </a>
  </div>
+</div>
 </td>

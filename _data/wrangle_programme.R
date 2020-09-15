@@ -2,27 +2,27 @@ library(tidyverse)
 library(hms)
 
 zoom <- tribble(
-  ~room, ~poster_id, ~zoom_link, ~expected,
+  ~room, ~poster_id, ~zoom_link, ~video_link, ~expected,
   # room 1
-  1, 7, "", "katriona",
-  1, 6, "", "katriona",
-  1, 18,"", "tugce",
-  1, 5, "", "ioana",
-  1, 17,"", "solon",
-  1, 3, "", "akira",
-  1, 13,"", "prateek",
-  1, 14,"", "risa",
-  1, 01,"", "anujan",
+  1, 7, "", NA, "katriona",
+  1, 6, "", NA, "katriona",
+  1, 18,"", NA, "tugce",
+  1, 5, "", NA, "ioana",
+  1, 17,"", NA, "solon",
+  1, 3, "", NA, "akira",
+  1, 13,"", NA, "prateek",
+  1, 14,"", NA, "risa",
+  1, 01,"", NA, "anujan",
   # room 2
-  2, 8, "", "keri",
-  2, 10, "", "nikolas",
-  2, 9, "", "lizhi",
-  2, 15, "", "ryan",
-  2, 4, "", "feargus",
-  2, 11, "", "obi",
-  2, 2, "", "daniele",
-  2, 12, "", "pedro",
-  2, NA, NA, NA
+  2, 8, "", NA, "keri",
+  2, 10, "", NA, "nikolas",
+  2, 9, "", NA, "lizhi",
+  2, 15, "", NA, "ryan",
+  2, 4, "", NA, "feargus",
+  2, 11, "", NA, "obi",
+  2, 2, "", NA, "daniele",
+  2, 12, "", NA, "pedro",
+  2, NA, NA, NA, NA
 )
 
 turing_zoom_url <- "https://turing-uk.zoom.us/j/"
@@ -41,10 +41,12 @@ programme <-
     to = showcase + hms(hours = start_hour + time_slots - 1),
     by = "1 hour")
   ) %>%
-  mutate(time = as_hms(datetime)) %>%
+  mutate(time = as_hms(datetime), .keep = "unused") %>%
   mutate(zoom_link = str_c(turing_zoom_url, zoom_link)) %>%
   mutate(poster_id = str_pad(as.character(poster_id), 2, "left", "0")) %>%
-  pivot_wider(names_from = room, values_from = c(poster_id, zoom_link, expected)) %>%
+  mutate(has_video = !is.na(video_link)) %>%
+  pivot_wider(names_from = room,
+              values_from = c(poster_id, zoom_link, expected, video_link, has_video)) %>%
   mutate(time = format(as.POSIXct(time), "%H:%M"))
 
 write_csv(programme, "programme.csv")
