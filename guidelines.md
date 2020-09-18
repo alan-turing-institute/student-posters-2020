@@ -15,7 +15,7 @@ See below for further guidelines and advice on each of these categories.
 
 <div class="jumbotron">
   <p class="lead">Submit your poster and video via email to
-		<a href="mailto:student-poster@turing.ac.uk">student-posters@turing.ac.uk</a>
+		<a href="mailto:student-posters@turing.ac.uk">student-posters@turing.ac.uk</a>
   </p>
 </div>
 
