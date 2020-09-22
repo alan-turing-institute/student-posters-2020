@@ -13,7 +13,7 @@ titles <- tribble(
   9, "Community detection - Bayesian inference for robust detection of assortative structure", "engineer", NA, "enrichment-students/lizhi-zhang",
   10, "Exploration and Exploitation in US Corporate Research", "economic", NA, "doctoral-students/nikolas-kuhlen",
   11, "An agent-based model of jaywalking: Representing contested street space in models of pedestrian movement", "social", NA, "enrichment-students/obi-thompson-sargoni",
-  12, "Identification and impact assessment of recurring traffic bottlenecks using ANPR technology", "engineer", "policy", "enrichment-students/pedro-pinto-da-silva",
+  12, "Identification of recurring traffic bottlenecks using ANPR technology", "engineer", "policy", "enrichment-students/pedro-pinto-da-silva",
   13, "Early Warning Signals for COVID-19 Using Probabilistic Risk Awareness Framework", "health", "tools", "doctoral-students/prateek-gupta",
   14, "Using machine learning to improve resolution and bias in urban temperature projections", "engineer", "policy", "enrichment-students/risa-ueno",
   15, "Hierarchical Monte Carlo Fusion", "engineer", "theory", "doctoral-students/ryan-chan",
@@ -67,7 +67,7 @@ posters <- read_csv(
   select(id, student, title, abstract, email, cohort, main_theme, cross_theme, student_url) %>%
   mutate(title = replace_na(title, "To be defined")) %>%
   mutate(id = str_pad(as.character(id), 2, "left", "0")) %>%
-  mutate(production = "false") %>%
+  mutate(production = "true") %>%
   rename(poster_id = id) %>%
   mutate(file_id = str_glue("{poster_id}-{student}")) %>%
   mutate(file_id = str_to_lower(file_id)) %>%
