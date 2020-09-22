@@ -12,7 +12,7 @@ zoom <- tribble(
   1, 3, "91621172306", NA, "akira",
   1, 13,"94564694583", NA, "prateek",
   1, 14,"94365127915", NA, "risa",
-  1, 01,"94990403140", NA, "anujan",
+  # 1, 01,"94990403140", NA, "anujan",
   # room 2
   2, 8, "93009754487", NA, "keri",
   2, 10, "99777001117", NA, "nikolas",
@@ -22,7 +22,7 @@ zoom <- tribble(
   2, 11, "92929385919", NA, "obi",
   2, 2, "98190487545", NA, "daniele",
   2, 12, "94586862227", NA, "pedro",
-  2, NA, NA, NA, NA
+  # 2, NA, NA, NA, NA
 )
 
 turing_zoom_url <- "https://turing-uk.zoom.us/j/"

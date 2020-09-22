@@ -7,4 +7,3 @@ time,poster_id_1,poster_id_2,zoom_link_1,zoom_link_2,expected_1,expected_2,video
 15:00,03,11,https://turing-uk.zoom.us/j/91621172306,https://turing-uk.zoom.us/j/92929385919,akira,obi,NA,NA,FALSE,FALSE
 16:00,13,02,https://turing-uk.zoom.us/j/94564694583,https://turing-uk.zoom.us/j/98190487545,prateek,daniele,NA,NA,FALSE,FALSE
 17:00,14,12,https://turing-uk.zoom.us/j/94365127915,https://turing-uk.zoom.us/j/94586862227,risa,pedro,NA,NA,FALSE,FALSE
-18:00,01,NA,https://turing-uk.zoom.us/j/94990403140,NA,anujan,NA,NA,NA,FALSE,FALSE
