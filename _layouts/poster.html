@@ -49,9 +49,20 @@ layout: default
 			<a target="_blank" href="{{ cross_theme.url }}" class="badge badge-pill badge-{{ page.cross_theme }}">{{ cross_theme.name }}</a>
 		{% endif %}
 
-	<hr class="my-4">
+    {% if page.has_poster %}
+    
+      <hr class="my-4">
 
-		<a target="_blank" href="{{ site.baseurl }}/assets/posters/{{ page.file_id }}.pdf" role="button" aria-disabled="true" class="btn btn-dark btn-block {{ poster_link }}" style="max-width:520px; white-space:nowrap; overflow:hidden;">Download poster</a>
+		  <a target="_blank" href="{{ site.baseurl }}/assets/posters/{{ page.file_id }}.pdf" role="button" aria-disabled="true" class="btn btn-dark btn-block {{ poster_link }}" style="max-width:520px; white-space:nowrap; overflow:hidden;">Download poster</a>
+
+    {% endif %}
+
+    {% if page.has_video %}
+
+      <hr class="my-4">
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.video_link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% endif %}
 
 	</div>
 
