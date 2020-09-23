@@ -1,24 +1,62 @@
 library(tidyverse)
 
 titles <- tribble(
-  ~id, ~title, ~main_theme, ~cross_theme, ~student_url,
-  1, "Towards Translating Network Science and Brain Graphs into Neurosurgery", "health", NA, "doctoral-students/anujan-poologaindran",
-  2, "Budgeting for SDGs: A Data-driven Approach", "economic", "policy", "enrichment-students/daniele-guariso",
-  3, "Within and between classroom transmission patterns of seasonal influenza inform management of COVID-19 in schools", "health", "policy", "enrichment-students/akira-endo",
-  4, "Intriguing Properties of Adversarial ML Attacks in the Problem Space", "secure", "tools", "enrichment-students/feargus-pendlebury",
-  5, "Estimating counterfactual treatment outcomes over time through adversarially balanced representations", "health", "tools", "doctoral-students/ioana-bica",
-  6, "Using comprehensive transcriptome analysis to reveal the landscape of pathobiology in early rheumatoid arthritis", "health", NA, "enrichment-students/katriona-goldmann",
-  7, "FAIR-Biomed: A browser extension for accessing open data in the biomedical domain", "health", "tools", "enrichment-students/katriona-goldmann",
-  8, "Regulation of AI and corresponding explainability practices", NA, "policy", "doctoral-students/keri-grieman",
-  9, "Community detection - Bayesian inference for robust detection of assortative structure", "engineer", NA, "enrichment-students/lizhi-zhang",
-  10, "Exploration and Exploitation in US Corporate Research", "economic", NA, "doctoral-students/nikolas-kuhlen",
-  11, "An agent-based model of jaywalking: Representing contested street space in models of pedestrian movement", "social", NA, "enrichment-students/obi-thompson-sargoni",
-  12, "Identification of recurring traffic bottlenecks using ANPR technology", "engineer", "policy", "enrichment-students/pedro-pinto-da-silva",
-  13, "Early Warning Signals for COVID-19 Using Probabilistic Risk Awareness Framework", "health", "tools", "doctoral-students/prateek-gupta",
-  14, "Using machine learning to improve resolution and bias in urban temperature projections", "engineer", "policy", "enrichment-students/risa-ueno",
-  15, "Hierarchical Monte Carlo Fusion", "engineer", "theory", "doctoral-students/ryan-chan",
-  17, "Tailored Bayes: a risk modelling framework under unequal classification costs", "health", "tools", "enrichment-students/solon-karapanagiotis",
-  18, "Protein domain-domain interaction prediction via deep neural networks", "health", NA, "enrichment-students/tugce-oruc",
+  ~id, ~title, ~main_theme, ~cross_theme, ~student_url,~video_link,
+  1, "Towards Translating Network Science and Brain Graphs into Neurosurgery",
+     "health", NA, "doctoral-students/anujan-poologaindran", NA,
+  #
+  2, "Budgeting for SDGs: A Data-driven Approach",
+     "economic", "policy", "enrichment-students/daniele-guariso", NA,
+  #
+  3, "Within and between classroom transmission patterns of seasonal influenza inform management of COVID-19 in schools",
+     "health", "policy", "enrichment-students/akira-endo", NA,
+  #
+  4, "Intriguing Properties of Adversarial ML Attacks in the Problem Space",
+     "secure", "tools", "enrichment-students/feargus-pendlebury",
+     "z2cqZBfSqpE",
+  #
+  5, "Estimating counterfactual treatment outcomes over time through adversarially balanced representations",
+     "health", "tools", "doctoral-students/ioana-bica",
+     "4SKisRflAT0",
+  #
+  6, "Using comprehensive transcriptome analysis to reveal the landscape of pathobiology in early rheumatoid arthritis",
+     "health", NA, "enrichment-students/katriona-goldmann", NA,
+  #
+  7, "FAIR-Biomed: A browser extension for accessing open data in the biomedical domain",
+     "health", "tools", "enrichment-students/katriona-goldmann",
+     "oamvnwDMEBc",
+  #
+  8, "Regulation of AI and corresponding explainability practices", NA,
+     "policy", "doctoral-students/keri-grieman", NA,
+  #
+  9, "Community detection - Bayesian inference for robust detection of assortative structure",
+     "engineer", NA, "enrichment-students/lizhi-zhang",
+     "wSadu7cz5g4",
+  #
+  10, "Exploration and Exploitation in US Corporate Research",
+      "economic", NA, "doctoral-students/nikolas-kuhlen", NA,
+  #
+  11, "An agent-based model of jaywalking: Representing contested street space in models of pedestrian movement",
+      "social", NA, "enrichment-students/obi-thompson-sargoni", NA,
+  #
+  12, "Identification of recurring traffic bottlenecks using ANPR technology",
+      "engineer", "policy", "enrichment-students/pedro-pinto-da-silva", NA,
+  #
+  13, "Early Warning Signals for COVID-19 Using Probabilistic Risk Awareness Framework",
+      "health", "tools", "doctoral-students/prateek-gupta", NA,
+  #
+  14, "Using machine learning to improve resolution and bias in urban temperature projections",
+      "engineer", "policy", "enrichment-students/risa-ueno", NA,
+  #
+  15, "Hierarchical Monte Carlo Fusion",
+      "engineer", "theory", "doctoral-students/ryan-chan",
+      "yCLs7IJG-Jw",
+  #
+  17, "Tailored Bayes: a risk modelling framework under unequal classification costs",
+      "health", "tools", "enrichment-students/solon-karapanagiotis", NA,
+  #
+  18, "Protein domain-domain interaction prediction via deep neural networks",
+      "health", NA, "enrichment-students/tugce-oruc", NA
 ) %>%
   mutate(student_url = str_glue("https://www.turing.ac.uk/people/{student_url}")) %>%
   mutate(title = na_if(title, ""))
@@ -64,7 +102,8 @@ posters <- read_csv(
   select(id, everything()) %>%
   inner_join(titles, by = "id") %>%
   rename(student = name) %>%
-  select(id, student, title, abstract, email, cohort, main_theme, cross_theme, student_url) %>%
+  mutate(has_poster = (id != 7)) %>%
+  mutate(has_video = !is.na(video_link)) %>%
   mutate(title = replace_na(title, "To be defined")) %>%
   mutate(id = str_pad(as.character(id), 2, "left", "0")) %>%
   mutate(production = "true") %>%
@@ -81,7 +120,10 @@ posters <- read_csv(
   mutate(student_url = case_when(
     poster_id == "08" ~ str_c(as.character(student_url), ";https://www.turing.ac.uk/people/doctoral-students/joseph-early"),
     TRUE ~ as.character(student_url)
-  ))
+  )) %>%
+  select(poster_id, student, file_id, production, has_poster, has_video, title,
+         abstract, email, cohort, main_theme, cross_theme, student_url,
+         video_link)
 
 # posters <- posters %>%
 #   mutate(cancel = poster_id == "01")
@@ -113,6 +155,10 @@ frontmatter <- function(x) {
   file_id: |
     {x$file_id}
   production: {x$production}
+  has_poster: {tolower(x$has_poster)}
+  has_video: {tolower(x$has_video)}
+  video_link: |
+    {x$video_link}
   ---
   ")
 }
