@@ -16,6 +16,13 @@ layout: default
   </p>
 
   <div class="mt-1 mb-4 ml-0 mr-0">
+    <div class="alert alert-dismissible alert-warning fade show" role="alert">
+    	<p class="lead mb-0">
+    		<strong>Posters and videos are now live!</strong>
+    	</p>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
+    </div>
+
     {% if page.alertregistration %}
       {% include registration_alert.html %}
     {% endif %}
