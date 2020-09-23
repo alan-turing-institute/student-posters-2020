@@ -27,29 +27,31 @@
 	{% endif %}
 </p>
 
-<div class="row">
-	<div class = "col-sm">
-		<a target="_blank" role="button" aria-disabled="true"
-		 	 href="{{ site.baseurl }}/assets/posters/{{ include.file_id }}.pdf"
-		   class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }}">
-		 	Poster
-	 </a>
+	<div class="row">
+		{% if include.has_poster == "TRUE" %}
+			<div class = "col-sm">
+				<a target="_blank" role="button" aria-disabled="true"
+					 href="{{ site.baseurl }}/assets/posters/{{ include.file_id }}.pdf"
+					 class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }}">
+					Poster
+			 </a>
+			</div>
+		{% endif %}
+		{% if include.has_video == "TRUE" %}
+			<div class = "col-sm">
+				<a target="_blank" role="button" aria-disabled="true"
+					 href="{{ include.video_link }}"
+					 class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }} ">
+					 Video
+				</a>
+			</div>
+		{% endif %}
+	 	<div class="col-sm">
+		 	<a target="_blank" role="button" aria-disabled="true"
+		 	  	href="{{ include.zoom_link }}"
+					class="border rounded btn btn-sm btn-link btn-block">
+					Zoom
+		 	</a>
+ 		</div>
 	</div>
-	{% if include.has_video == "TRUE" %}
-		<div class = "col-sm">
-			<a target="_blank" role="button" aria-disabled="true"
-				 href="{{ include.video_link }}"
-				 class="border rounded btn btn-sm btn-link btn-block {{ include.poster_link }} ">
-				 Video
-			</a>
-		</div>
-	{% endif %}
- <div class="col-sm">
-	 <a target="_blank" role="button" aria-disabled="true"
-	 	  href="{{ include.zoom_link }}"
-			class="border rounded btn btn-sm btn-link btn-block">
-			Zoom
-	 </a>
- </div>
-</div>
 </td>
